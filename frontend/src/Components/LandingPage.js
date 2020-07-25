@@ -1,8 +1,9 @@
 import React from "react";
-import { Table, Tag, Space } from "antd";
+import { Table, Row, Col, Button, Tag, Space, Typography } from "antd";
 import data from "../data";
 
 export default function LandingPage() {
+  const { Title } = Typography;
   const columns = [
     {
       title: "Restaurant Name",
@@ -41,6 +42,8 @@ export default function LandingPage() {
             let color = tag.length > 6 ? "geekblue" : "green";
             if (tag === "Fast Food") {
               color = "volcano";
+            } else if (tag === "Street Food") {
+              color = "yellow";
             }
             return (
               <Tag color={color} key={tag}>
@@ -63,6 +66,15 @@ export default function LandingPage() {
   ];
   return (
     <div>
+      <Row gutter={[40, 0]}>
+        <Col span={18}>
+          <Title level={2}>List of Restaurant's</Title>
+        </Col>
+        <Col span={6}>
+          <Button block>Add Restaurant</Button>
+        </Col>
+      </Row>
+
       <Table columns={columns} dataSource={data.products} pagination={false} />
     </div>
   );

@@ -7,7 +7,14 @@ export default {
       dt: 40,
       avgcost: 200,
       address: "New York No. 1 Lake Park",
-      tags: ["Cafe", "Tea", "Fast Food", "Steet Food", "Desserts", "Beverages"],
+      tags: [
+        "Cafe",
+        "Tea",
+        "Fast Food",
+        "Street Food",
+        "Desserts",
+        "Beverages",
+      ],
     },
     {
       key: "2",

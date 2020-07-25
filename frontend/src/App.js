@@ -12,11 +12,13 @@ function App() {
         <Header style={{ color: "red", textAlign: "center" }}>
           Restaurant and Menu Managemet System
         </Header>
+        <br />
         <Content>
           <Switch>
             <Route exact path="/" exact={true} component={LandingPage} />
           </Switch>
         </Content>
+        <br />
         <Footer style={{ textAlign: "center" }}>All Rights Reseverd</Footer>
       </Layout>
     </div>
