@@ -31,7 +31,7 @@ export default {
       dt: "49",
       avgcost: "200",
       address: "Sidney No. 1 Lake Park",
-      tags: ["Burger", "American"],
+      
     },
     {
       key: "5",
@@ -40,7 +40,7 @@ export default {
       dt: "60",
       avgcost: "200",
       address: "Sidney No. 1 Lake Park",
-      tags: ["Mithai", "Street Food"],
+     
     },
     {
       key: "6",

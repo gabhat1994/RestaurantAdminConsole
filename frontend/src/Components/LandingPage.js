@@ -10,7 +10,6 @@ export default function LandingPage() {
       title: "Restaurant Name",
       dataIndex: "name",
       key: "name",
-      render: (text) => <a>{text}</a>,
     },
 
     {
@@ -40,7 +39,8 @@ export default function LandingPage() {
 
       render: (text, record) => (
         <Space size="middle">
-          <a>Edit Restaurant</a>
+          <Link to={"/editRestaurant/" + record.key}>Edit Restaurant</Link>
+          <Link to={"/viewresturant/" + record.key}>View Menu</Link>
         </Space>
       ),
     },
