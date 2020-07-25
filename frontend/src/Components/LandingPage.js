@@ -1,6 +1,7 @@
 import React from "react";
 import { Table, Row, Col, Button, Tag, Space, Typography } from "antd";
 import data from "../data";
+import { Link } from "react-router-dom";
 
 export default function LandingPage() {
   const { Title } = Typography;
@@ -21,42 +22,18 @@ export default function LandingPage() {
       title: "Rating",
       dataIndex: "rating",
       key: "rating",
-      sorter: (a, b) => a.rating - b.rating,
     },
     {
       title: "Delivery TIme (in mins)",
       dataIndex: "dt",
       key: "dt",
-      sorter: (a, b) => a.dt - b.dt,
     },
     {
       title: "Average Cost (Rs)",
       dataIndex: "avgcost",
       key: "avgcost",
-      sorter: (a, b) => a.avgcost - b.avgcost,
     },
-    {
-      title: "Tags",
-      key: "tags",
-      dataIndex: "tags",
-      render: (tags) => (
-        <>
-          {tags.map((tag) => {
-            let color = tag.length > 6 ? "geekblue" : "green";
-            if (tag === "Fast Food") {
-              color = "volcano";
-            } else if (tag === "Street Food") {
-              color = "yellow";
-            }
-            return (
-              <Tag color={color} key={tag}>
-                {tag.toUpperCase()}
-              </Tag>
-            );
-          })}
-        </>
-      ),
-    },
+
     {
       title: "Action",
       key: "action",
@@ -75,7 +52,9 @@ export default function LandingPage() {
           <Title level={2}>List of Restaurant's</Title>
         </Col>
         <Col span={6}>
-          <Button block>Add Restaurant</Button>
+          <Link to={"/addRestaurant"}>
+            <Button block>Add Restaurant</Button>
+          </Link>
         </Col>
       </Row>
       <Row gutter={[40, 0]}>

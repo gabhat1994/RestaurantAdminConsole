@@ -1,5 +1,6 @@
 import React from "react";
 import LandingPage from "./Components/LandingPage";
+import AddRestaurant from "./Components/AddingRestaurant";
 import { Layout } from "antd";
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
@@ -16,6 +17,7 @@ function App() {
         <Content>
           <Switch>
             <Route exact path="/" exact={true} component={LandingPage} />
+            <Route exact path="/addRestaurant" component={AddRestaurant} />
           </Switch>
         </Content>
         <br />
