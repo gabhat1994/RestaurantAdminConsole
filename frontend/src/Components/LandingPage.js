@@ -38,8 +38,8 @@ export default function LandingPage() {
       render: (tags) => (
         <>
           {tags.map((tag) => {
-            let color = tag.length > 5 ? "geekblue" : "green";
-            if (tag === "loser") {
+            let color = tag.length > 6 ? "geekblue" : "green";
+            if (tag === "Fast Food") {
               color = "volcano";
             }
             return (
@@ -63,7 +63,7 @@ export default function LandingPage() {
   ];
   return (
     <div>
-      <Table columns={columns} dataSource={data.products} />
+      <Table columns={columns} dataSource={data.products} pagination={false} />
     </div>
   );
 }
