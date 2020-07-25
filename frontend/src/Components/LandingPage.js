@@ -21,16 +21,19 @@ export default function LandingPage() {
       title: "Rating",
       dataIndex: "rating",
       key: "rating",
+      sorter: (a, b) => a.rating - b.rating,
     },
     {
       title: "Delivery TIme (in mins)",
       dataIndex: "dt",
       key: "dt",
+      sorter: (a, b) => a.dt - b.dt,
     },
     {
       title: "Average Cost (Rs)",
       dataIndex: "avgcost",
       key: "avgcost",
+      sorter: (a, b) => a.avgcost - b.avgcost,
     },
     {
       title: "Tags",
@@ -57,9 +60,10 @@ export default function LandingPage() {
     {
       title: "Action",
       key: "action",
+
       render: (text, record) => (
         <Space size="middle">
-          <a>Edit Details</a>
+          <a>Edit Restaurant</a>
         </Space>
       ),
     },
@@ -74,8 +78,15 @@ export default function LandingPage() {
           <Button block>Add Restaurant</Button>
         </Col>
       </Row>
-
-      <Table columns={columns} dataSource={data.products} pagination={false} />
+      <Row gutter={[40, 0]}>
+        <Col span={24}>
+          <Table
+            columns={columns}
+            dataSource={data.products}
+            pagination={false}
+          />
+        </Col>
+      </Row>
     </div>
   );
 }
