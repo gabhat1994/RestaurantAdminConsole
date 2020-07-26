@@ -72,7 +72,7 @@ export default function ViewMenu(props) {
                                 bordered={true}
                                 style={{ width: 300 }}
                               >
-                                Card content
+                                Rs {menu.price}
                               </Card>
                             </Col>
                           );
