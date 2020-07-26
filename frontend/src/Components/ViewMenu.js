@@ -1,20 +1,37 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Layout, Row, Col, Collapse, Card } from "antd";
+import {
+  Layout,
+  Row,
+  Col,
+  Collapse,
+  Card,
+  Typography,
+  Button,
+  Drawer,
+} from "antd";
 
 export default function ViewMenu(props) {
   const { Header, Content } = Layout;
   const { Panel } = Collapse;
+  const { Title } = Typography;
   const expandIconPosition = "right";
+  const [visible, setVisible] = useState(false);
+  const [drawer, setDrawer] = useState(false);
   const key = props.match.params.key.toString();
   const restaurantReducer = useSelector((state) => state.restaurantReducer);
   const { restaurantList } = restaurantReducer;
   const restaurantData = restaurantList.find((x) => x.key === key);
-  const text = `
-  A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-`;
+
+  const showDrawer = () => {
+    setVisible(true);
+    setDrawer(true);
+  };
+
+  const onClose = () => {
+    setVisible(false);
+    setDrawer(false);
+  };
 
   return (
     <Layout>
@@ -24,6 +41,16 @@ export default function ViewMenu(props) {
         {restaurantData.name} Menu
       </Header>
       <Content>
+        <Row gutter={[40, 0]}>
+          <Col span={18}>
+            <Title level={2}>List of Menu Items Avavilable</Title>
+          </Col>
+          <Col span={6}>
+            <Button block type="primary" onClick={showDrawer}>
+              Add Menu Items
+            </Button>
+          </Col>
+        </Row>
         <Row gutter={[40, 0]}>
           <Col span={23}>
             <Collapse
@@ -58,6 +85,20 @@ export default function ViewMenu(props) {
             </Collapse>
           </Col>
         </Row>
+        {drawer && (
+          <Drawer
+            title="Basic Drawer"
+            placement="right"
+            closable={false}
+            onClose={onClose}
+            width={480}
+            visible={visible}
+          >
+            <p>Some contents...</p>
+            <p>Some contents...</p>
+            <p>Some contents...</p>
+          </Drawer>
+        )}
       </Content>
     </Layout>
   );
