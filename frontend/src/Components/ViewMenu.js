@@ -6,13 +6,16 @@ import {
   Col,
   Collapse,
   Card,
+  Input,
   Typography,
   Button,
   Drawer,
+  Form,
 } from "antd";
 
 export default function ViewMenu(props) {
   const { Header, Content } = Layout;
+  const [form] = Form.useForm();
   const { Panel } = Collapse;
   const { Title } = Typography;
   const expandIconPosition = "right";
@@ -22,6 +25,12 @@ export default function ViewMenu(props) {
   const restaurantReducer = useSelector((state) => state.restaurantReducer);
   const { restaurantList } = restaurantReducer;
   const restaurantData = restaurantList.find((x) => x.key === key);
+
+  const initialValues = {
+    cuisine: "",
+    dish: "",
+    price: "",
+  };
 
   const showDrawer = () => {
     setVisible(true);
@@ -33,6 +42,19 @@ export default function ViewMenu(props) {
     setDrawer(false);
   };
 
+  const onFinish = (values) => {
+    console.log(values, "test123");
+    // dispatch(addResturant(values));
+    // props.history.push("/");
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log(errorInfo, "test");
+  };
+
+  const onReset = () => {
+    form.current.resetFields();
+  };
   return (
     <Layout>
       <Header
@@ -94,9 +116,60 @@ export default function ViewMenu(props) {
             width={480}
             visible={visible}
           >
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
+            <Form
+              ref={form}
+              initialValues={initialValues}
+              onFinish={onFinish}
+              onFinishFailed={onFinishFailed}
+            >
+              <Form.Item
+                name="cuisine"
+                label="Cusine Name"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input Cuisine",
+                  },
+                ]}
+              >
+                <Input placeholder="Please Enter  Cuisine" />
+              </Form.Item>
+
+              <Form.Item
+                name="dish"
+                label="Dish Name"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input dish",
+                  },
+                ]}
+              >
+                <Input placeholder="Please Enter dish name" />
+              </Form.Item>
+
+              <Form.Item
+                name="price"
+                label="Dish Price"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input dish price",
+                  },
+                ]}
+              >
+                <Input placeholder="Please Enter  price" />
+              </Form.Item>
+              <div style={{ textAlign: "center" }}>
+                <Button type="primary" htmlType="submit">
+                  Save
+                </Button>
+
+                <Button type="reset" onClick={onReset}>
+                  Reset
+                </Button>
+              </div>
+            </Form>
           </Drawer>
         )}
       </Content>
