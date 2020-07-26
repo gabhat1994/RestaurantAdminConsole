@@ -1,10 +1,23 @@
-import React from "react";
-import { Table, Row, Col, Button, Tag, Space, Typography } from "antd";
-import data from "../data";
+import React, { useEffect, useState } from "react";
+import { Table, Row, Col, Button, Space, Typography } from "antd";
 import { Link } from "react-router-dom";
-
-export default function LandingPage() {
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { resturantList } from "../actions/restaurantActions";
+export default function LandingPage(props) {
   const { Title } = Typography;
+  const dispatch = useDispatch();
+  const restaurantReducer = useSelector((state) => state.restaurantReducer);
+  const { restaurantList } = restaurantReducer;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data } = await axios.get("./data.json");
+      dispatch(resturantList(data.products));
+    };
+
+    fetchData();
+  }, []);
   const columns = [
     {
       title: "Restaurant Name",
@@ -61,7 +74,7 @@ export default function LandingPage() {
         <Col span={24}>
           <Table
             columns={columns}
-            dataSource={data.products}
+            dataSource={restaurantList}
             pagination={false}
           />
         </Col>

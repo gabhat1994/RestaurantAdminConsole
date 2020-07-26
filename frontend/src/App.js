@@ -1,19 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import LandingPage from "./Components/LandingPage";
 import AddRestaurant from "./Components/AddingRestaurant";
 import EditRestaurant from "./Components/EditRestaurant";
-import ViewMenu from "./Components/ViewMenu"
+import ViewMenu from "./Components/ViewMenu";
 import { Layout } from "antd";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Link } from "react-router-dom";
 import "./App.css";
 
 function App() {
   const { Header, Footer, Content } = Layout;
+
   return (
     <div>
       <Layout>
-        <Header style={{ color: "red", textAlign: "center" }}>
-          Restaurant and Menu Managemet System
+        <Header>
+          <Link to={"/"}> Restaurant and Menu Managemet System</Link>
         </Header>
         <br />
         <Content>
@@ -25,11 +26,7 @@ function App() {
               path="/editRestaurant/:key"
               component={EditRestaurant}
             />
-            <Route
-              exact
-              path="/viewresturant/:key"
-              component={ViewMenu}
-            />
+            <Route exact path="/viewresturant/:key" component={ViewMenu} />
           </Switch>
         </Content>
         <br />
