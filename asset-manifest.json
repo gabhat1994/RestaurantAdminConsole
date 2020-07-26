@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/RestaurantAdminConsole/static/css/main.694af7b5.chunk.css",
+    "main.js": "/RestaurantAdminConsole/static/js/main.02c5bcd2.chunk.js",
+    "main.js.map": "/RestaurantAdminConsole/static/js/main.02c5bcd2.chunk.js.map",
+    "runtime-main.js": "/RestaurantAdminConsole/static/js/runtime-main.44b8939e.js",
+    "runtime-main.js.map": "/RestaurantAdminConsole/static/js/runtime-main.44b8939e.js.map",
+    "static/css/2.e0e21483.chunk.css": "/RestaurantAdminConsole/static/css/2.e0e21483.chunk.css",
+    "static/js/2.fa2a6415.chunk.js": "/RestaurantAdminConsole/static/js/2.fa2a6415.chunk.js",
+    "static/js/2.fa2a6415.chunk.js.map": "/RestaurantAdminConsole/static/js/2.fa2a6415.chunk.js.map",
+    "index.html": "/RestaurantAdminConsole/index.html",
+    "precache-manifest.c49b6b4673979f0ae4f928c3ee76476e.js": "/RestaurantAdminConsole/precache-manifest.c49b6b4673979f0ae4f928c3ee76476e.js",
+    "service-worker.js": "/RestaurantAdminConsole/service-worker.js",
+    "static/css/2.e0e21483.chunk.css.map": "/RestaurantAdminConsole/static/css/2.e0e21483.chunk.css.map",
+    "static/css/main.694af7b5.chunk.css.map": "/RestaurantAdminConsole/static/css/main.694af7b5.chunk.css.map",
+    "static/js/2.fa2a6415.chunk.js.LICENSE.txt": "/RestaurantAdminConsole/static/js/2.fa2a6415.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.44b8939e.js",
+    "static/css/2.e0e21483.chunk.css",
+    "static/js/2.fa2a6415.chunk.js",
+    "static/css/main.694af7b5.chunk.css",
+    "static/js/main.02c5bcd2.chunk.js"
+  ]
+}
