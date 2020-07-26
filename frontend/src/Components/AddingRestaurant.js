@@ -11,6 +11,9 @@ export default function AddingRestaurant(props) {
     rating: "",
     avgcost: "",
     dt: "",
+    price: "",
+    dish: "",
+    cuisine: "",
   };
   const layout = {
     labelCol: { span: 8 },
@@ -86,7 +89,44 @@ export default function AddingRestaurant(props) {
             <Form.Item name="avgcost" label="Average Cost">
               <Input placeholder="Please Enter  Average Cost" />
             </Form.Item>
+            <Form.Item
+              name="cuisine"
+              label="Cusine Name"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input Cuisine",
+                },
+              ]}
+            >
+              <Input placeholder="Please Enter  Cuisine" />
+            </Form.Item>
 
+            <Form.Item
+              name="dish"
+              label="Dish Name"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input dish",
+                },
+              ]}
+            >
+              <Input placeholder="Please Enter dish name" />
+            </Form.Item>
+
+            <Form.Item
+              name="price"
+              label="Dish Price"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input dish price",
+                },
+              ]}
+            >
+              <Input placeholder="Please Enter  price" />
+            </Form.Item>
             <div style={{ textAlign: "center" }}>
               <Button type="primary" htmlType="submit">
                 Save

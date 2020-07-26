@@ -7,8 +7,24 @@ import {
 
 const getUpadtedList = (state, newValue) => {
   let newData = [];
-  newValue.key = (state.restaurantList.length + 1).toString();
-  newData.push(newValue);
+  let z = {};
+  z.address = newValue.address;
+  z.avgcost = newValue.avgcost;
+  z.dt = newValue.dt;
+  z.name = newValue.name;
+  z.rating = newValue.rating;
+  z.key = (state.restaurantList.length + 1).toString();
+
+  z.menu = {
+    category: [
+      {
+        key: "1",
+        cuisine: newValue.cuisine,
+        menuItems: [{ key: "1", dish: newValue.dish, price: newValue.price }],
+      },
+    ],
+  };
+  newData.push(z);
   let finalData = [...state.restaurantList, ...newData];
 
   return finalData;
