@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import {
   Layout,
   Row,
@@ -12,7 +12,7 @@ import {
   Drawer,
   Form,
 } from "antd";
-
+import { addMenuItem } from "../actions/restaurantActions";
 export default function ViewMenu(props) {
   const { Header, Content } = Layout;
   const [form] = Form.useForm();
@@ -25,6 +25,7 @@ export default function ViewMenu(props) {
   const restaurantReducer = useSelector((state) => state.restaurantReducer);
   const { restaurantList } = restaurantReducer;
   const restaurantData = restaurantList.find((x) => x.key === key);
+  const dispatch = useDispatch();
 
   const initialValues = {
     cuisine: "",
@@ -43,9 +44,11 @@ export default function ViewMenu(props) {
   };
 
   const onFinish = (values) => {
-    console.log(values, "test123");
-    // dispatch(addResturant(values));
-    // props.history.push("/");
+    var key = { key: restaurantData.key };
+    let finaldat = { ...values, ...key };
+    console.log(finaldat, "test123");
+    dispatch(addMenuItem(finaldat));
+    setDrawer(false);
   };
 
   const onFinishFailed = (errorInfo) => {
