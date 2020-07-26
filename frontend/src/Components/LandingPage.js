@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function LandingPage() {
   const { Title } = Typography;
-  const dispatch = useDispatch();
+
   const restaurantReducer = useSelector((state) => state.restaurantReducer);
   const { restaurantList } = restaurantReducer;
 

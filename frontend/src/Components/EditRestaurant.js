@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col, Typography, Input, Form, Button } from "antd";
-
+import { editResturant } from "../actions/restaurantActions";
+import { useDispatch, useSelector } from "react-redux";
 export default function EditRestaurant(props) {
   const [form] = Form.useForm();
+  const dispatch = useDispatch();
+  const key = props.match.params.key.toString();
+  const restaurantReducer = useSelector((state) => state.restaurantReducer);
+  const { restaurantList } = restaurantReducer;
+  const restaurantData = restaurantList.find((x) => x.key === key);
 
   const initialValues = {
-    restaurantName: "",
-    address: "",
-    rating: "",
-    avgcost: "",
-    dt: "",
+    name: restaurantData.name,
+    address: restaurantData.address,
+    rating: restaurantData.rating,
+    avgcost: restaurantData.avgcost,
+    dt: restaurantData.dt,
   };
   const layout = {
     labelCol: { span: 8 },
@@ -18,9 +24,11 @@ export default function EditRestaurant(props) {
   const { Title } = Typography;
 
   const onFinish = (values) => {
-    console.log(values, "test3");
-    console.log(parseInt(values.avgcost), "test3");
-    console.log(parseInt(values.dt), "test3");
+    var key = { key: restaurantData.key };
+    let finaldat = { ...values, ...key };
+
+    console.log(finaldat, "restaurantData");
+    dispatch(editResturant(finaldat));
     props.history.push("/");
   };
 
@@ -51,7 +59,7 @@ export default function EditRestaurant(props) {
             onFinishFailed={onFinishFailed}
           >
             <Form.Item
-              name="restaurantName"
+              name="name"
               label="Restaurant Name"
               rules={[
                 {

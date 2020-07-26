@@ -21,7 +21,7 @@ export default function AddingRestaurant(props) {
   const onFinish = (values) => {
     console.log(values, "test123");
     dispatch(addResturant(values));
-    // props.history.push("/");
+    props.history.push("/");
   };
 
   const onFinishFailed = (errorInfo) => {

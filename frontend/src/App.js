@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import LandingPage from "./Components/LandingPage";
 import AddRestaurant from "./Components/AddingRestaurant";
 import EditRestaurant from "./Components/EditRestaurant";
@@ -7,7 +7,7 @@ import { Layout } from "antd";
 import { Route, Switch, Link } from "react-router-dom";
 import "./App.css";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { resturantList } from "../src/actions/restaurantActions";
 function App() {
   const { Header, Footer, Content } = Layout;
