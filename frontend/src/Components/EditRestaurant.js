@@ -24,7 +24,7 @@ export default function EditRestaurant(props) {
   const { Title } = Typography;
 
   const onFinish = (values) => {
-    var key = { key: restaurantData.key };
+    var key = { key: restaurantData.key, menu: restaurantData.menu };
     let finaldat = { ...values, ...key };
 
     console.log(finaldat, "restaurantData");
