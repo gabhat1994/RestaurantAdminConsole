@@ -1,14 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Row,
-  Col,
-  Typography,
-  Input,
-  Form,
-  Button,
-  Slider,
-  Select,
-} from "antd";
+import { Row, Col, Typography, Input, Form, Button } from "antd";
 
 export default function EditRestaurant(props) {
   const [form] = Form.useForm();
@@ -98,7 +89,7 @@ export default function EditRestaurant(props) {
 
             <div style={{ textAlign: "center" }}>
               <Button type="primary" htmlType="submit">
-                Save
+                Update
               </Button>
 
               <Button type="reset" onClick={onReset}>

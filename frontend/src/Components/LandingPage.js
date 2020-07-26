@@ -1,23 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Table, Row, Col, Button, Space, Typography } from "antd";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { resturantList } from "../actions/restaurantActions";
-export default function LandingPage(props) {
+
+export default function LandingPage() {
   const { Title } = Typography;
   const dispatch = useDispatch();
   const restaurantReducer = useSelector((state) => state.restaurantReducer);
   const { restaurantList } = restaurantReducer;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const { data } = await axios.get("./data.json");
-      dispatch(resturantList(data.products));
-    };
-
-    fetchData();
-  }, []);
   const columns = [
     {
       title: "Restaurant Name",

@@ -1,20 +1,12 @@
 import React, { useState, useEffect } from "react";
-import {
-  Row,
-  Col,
-  Typography,
-  Input,
-  Form,
-  Button,
-  Slider,
-  Select,
-} from "antd";
-
+import { Row, Col, Typography, Input, Form, Button } from "antd";
+import { useDispatch } from "react-redux";
+import { addResturant } from "../actions/restaurantActions";
 export default function AddingRestaurant(props) {
   const [form] = Form.useForm();
-
+  const dispatch = useDispatch();
   const initialValues = {
-    restaurantName: "",
+    name: "",
     address: "",
     rating: "",
     avgcost: "",
@@ -27,10 +19,9 @@ export default function AddingRestaurant(props) {
   const { Title } = Typography;
 
   const onFinish = (values) => {
-    console.log(values, "test3");
-    console.log(parseInt(values.avgcost), "test3");
-    console.log(parseInt(values.dt), "test3");
-    props.history.push("/");
+    console.log(values, "test123");
+    dispatch(addResturant(values));
+    // props.history.push("/");
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -60,7 +51,7 @@ export default function AddingRestaurant(props) {
             onFinishFailed={onFinishFailed}
           >
             <Form.Item
-              name="restaurantName"
+              name="name"
               label="Restaurant Name"
               rules={[
                 {
