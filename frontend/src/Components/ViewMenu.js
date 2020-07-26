@@ -112,7 +112,7 @@ export default function ViewMenu(props) {
         </Row>
         {drawer && (
           <Drawer
-            title="Basic Drawer"
+            title="Add Menu Items"
             placement="right"
             closable={false}
             onClose={onClose}
